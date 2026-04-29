@@ -3,45 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>mosshaven</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <title>slutvibe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Albert Sans', sans-serif;
         }
 
         :root {
-            --primary-green: #6A994E; /* Мшистый зеленый */
-            --light-green: #A7C957;  /* Светлый акцентный зеленый */
-            --background-dark: #1B1B1B; /* Очень темный фон */
-            --surface-dark: #242424; /* Цвет карточек */
-            --on-surface: #E0E0E0; /* Цвет текста */
-            --glow-color: rgba(106, 153, 78, 0.5);
+            --md-sys-color-primary: #AAC7FF;
+            --md-sys-color-surface-tint: #AAC7FF;
+            --md-sys-color-on-primary: #0A305F;
+            --md-sys-color-primary-container: #284777;
+            --md-sys-color-on-primary-container: #D6E3FF;
+            --md-sys-color-secondary: #BEC6DC;
+            --md-sys-color-on-secondary: #283141;
+            --md-sys-color-secondary-container: #3E4759;
+            --md-sys-color-on-secondary-container: #DAE2F9;
+            --md-sys-color-tertiary: #DDBCE0;
+            --md-sys-color-on-tertiary: #3F2844;
+            --md-sys-color-tertiary-container: #573E5C;
+            --md-sys-color-on-tertiary-container: #FAD8FD;
+            --md-sys-color-error: #FFB4AB;
+            --md-sys-color-on-error: #690005;
+            --md-sys-color-error-container: #93000A;
+            --md-sys-color-on-error-container: #FFDAD6;
+            --md-sys-color-background: #111318;
+            --md-sys-color-on-background: #E2E2E9;
+            --md-sys-color-surface: #111318;
+            --md-sys-color-on-surface: #E2E2E9;
+            --md-sys-color-surface-variant: #44474E;
+            --md-sys-color-on-surface-variant: #C4C6D0;
+            --md-sys-color-outline: #8E9099;
+            --md-sys-color-outline-variant: #44474E;
+            --md-sys-color-shadow: rgb(0 0 0);
+            --md-sys-color-scrim: rgb(0 0 0);
+            --md-sys-color-inverse-surface: #E2E2E9;
+            --md-sys-color-inverse-on-surface: #2E3036;
+            --md-sys-color-inverse-primary: #415F91;
+            --md-sys-color-primary-fixed: #D6E3FF;
+            --md-sys-color-on-primary-fixed: #001B3E;
+            --md-sys-color-primary-fixed-dim: #AAC7FF;
+            --md-sys-color-on-primary-fixed-variant: #284777;
+            --md-sys-color-secondary-fixed: #DAE2F9;
+            --md-sys-color-on-secondary-fixed: #131C2B;
+            --md-sys-color-secondary-fixed-dim: #BEC6DC;
+            --md-sys-color-on-secondary-fixed-variant: #3E4759;
+            --md-sys-color-tertiary-fixed: #FAD8FD;
+            --md-sys-color-on-tertiary-fixed: #28132E;
+            --md-sys-color-tertiary-fixed-dim: #DDBCE0;
+            --md-sys-color-on-tertiary-fixed-variant: #573E5C;
+            --md-sys-color-surface-dim: #111318;
+            --md-sys-color-surface-bright: #37393E;
+            --md-sys-color-surface-container-lowest: #0C0E13;
+            --md-sys-color-surface-container-low: #191C20;
+            --md-sys-color-surface-container: #1D2024;
+            --md-sys-color-surface-container-high: #282A2F;
+            --md-sys-color-surface-container-highest: #33353A;
+        }
+
+        :root {
+            --primary: var(--md-sys-color-primary);
+            --primary-strong: var(--md-sys-color-primary-container);
+            --secondary: var(--md-sys-color-secondary);
+            --background: var(--md-sys-color-background);
+            --surface: var(--md-sys-color-surface-container);
+            --surface-strong: var(--md-sys-color-surface-container-high);
+            --text: var(--md-sys-color-on-surface);
+            --muted: var(--md-sys-color-on-surface-variant);
+            --border: var(--md-sys-color-outline-variant);
+            --shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
         }
 
         body {
-            background-color: var(--background-dark);
-            color: var(--on-surface);
+            background: var(--md-sys-color-background);
+            color: var(--text);
             line-height: 1.6;
             overflow-x: hidden;
         }
 
         #particles-js {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: -1;
+            display: none;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 980px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 1.5rem 1.25rem 2.5rem;
             position: relative;
             z-index: 1;
         }
@@ -51,24 +102,24 @@
             flex-direction: column;
             align-items: center;
             gap: 2rem;
-            padding: 5rem 0;
+            padding: 4rem 0 2.5rem;
             text-align: center;
         }
 
         .avatar {
-            width: 180px;
-            height: 180px;
+            width: 176px;
+            height: 176px;
             border-radius: 50%;
-            background: url('https://avatars.githubusercontent.com/u/134005418?v=4') center/cover;
-            border: 3px solid var(--primary-green);
-            box-shadow: 0 0 20px var(--glow-color), 0 0 30px var(--glow-color) inset;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            animation: fadeIn 1s ease-out, float 6s ease-in-out infinite;
+            background: url('https://avatars.githubusercontent.com/u/134005418?s=400&u=050192b3836314faba3d37a7e7362f5ca47448f2&v=4') center/cover;
+            border: none;
+            box-shadow: var(--shadow);
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+            animation: fadeIn 0.9s ease-out;
         }
 
         .avatar:hover {
-            transform: scale(1.05) rotate(5deg);
-            box-shadow: 0 0 30px var(--glow-color), 0 0 40px var(--glow-color) inset;
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 22px 60px rgba(0, 0, 0, 0.45);
         }
 
         .profile-info {
@@ -76,20 +127,17 @@
         }
 
         .profile-info h1 {
-            font-size: 3rem;
+            font-size: clamp(2.5rem, 5.3vw, 4.2rem);
             font-weight: 700;
             margin-bottom: 1rem;
-            background: linear-gradient(45deg, var(--light-green), var(--primary-green));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: text-glow 2s ease-in-out infinite alternate;
+            letter-spacing: -0.03em;
+            color: var(--text);
         }
 
         .profile-info p {
-            font-size: 1.1rem;
-            opacity: 0.8;
-            font-weight: 300;
+            font-size: 1.05rem;
+            color: var(--muted);
+            font-weight: 400;
             max-width: 500px;
             margin: 0 auto;
             text-align: center;
@@ -97,33 +145,34 @@
 
         .actions {
             display: flex;
-            gap: 1.5rem;
-            margin-top: 2.5rem;
+            gap: 0.8rem;
+            margin-top: 1.75rem;
             flex-wrap: wrap;
             justify-content: center;
-            animation: fadeInUp 1s ease-out 0.5s backwards;
+            animation: fadeInUp 1s ease-out 0.3s backwards;
         }
 
         .md-button {
             display: inline-flex;
             align-items: center;
-            gap: 0.7rem;
-            padding: 0.8rem 1.5rem;
-            border-radius: 50px;
+            gap: 0.65rem;
+            padding: 0.95rem 1.25rem;
+            border-radius: 14px;
             text-decoration: none;
             font-weight: 500;
             transition: all 0.3s ease;
-            background: transparent;
-            color: var(--primary-green);
-            border: 2px solid var(--primary-green);
-            letter-spacing: 0.5px;
+            background: rgba(13, 30, 47, 0.94);
+            color: var(--text);
+            border: 1px solid var(--border);
+            letter-spacing: 0.2px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
         }
 
         .md-button:hover {
-            background: var(--primary-green);
-            color: var(--background-dark);
-            box-shadow: 0 0 20px var(--glow-color);
-            transform: translateY(-5px);
+            background: var(--primary);
+            color: var(--md-sys-color-on-primary);
+            box-shadow: 0 14px 30px rgba(170, 199, 255, 0.18);
+            transform: translateY(-2px);
         }
 
         .md-button i {
@@ -136,50 +185,36 @@
         }
 
         .project-card {
-            background: var(--surface-dark);
-            border-radius: 20px;
-            padding: 2rem;
-            margin: 2rem 0;
+            background: var(--md-sys-color-surface-container);
+            border-radius: 24px;
+            padding: 1.9rem;
+            margin: 1.5rem 0;
             transition: all 0.4s ease;
-            border: 1px solid rgba(106, 153, 78, 0.2);
+            border: 1px solid var(--border);
             opacity: 0;
             transform: translateY(30px) scale(0.98);
             position: relative;
             overflow: hidden;
-        }
-
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(167, 201, 87, 0.1), transparent);
-            transition: left 0.6s ease;
-        }
-
-        .project-card:hover::before {
-            left: 100%;
+            box-shadow: var(--shadow);
         }
 
         .project-card:hover {
             transform: translateY(-5px) scale(1);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            border-color: rgba(106, 153, 78, 0.5);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+            border-color: var(--md-sys-color-primary-fixed-dim);
         }
 
         .project-card h3 {
-            color: var(--light-green);
+            color: var(--md-sys-color-primary-fixed-dim);
             margin-bottom: 1rem;
-            font-size: 1.5rem;
+            font-size: 1.35rem;
             font-weight: 500;
         }
 
         .project-card p {
             margin-bottom: 1rem;
-            font-weight: 300;
-            opacity: 0.9;
+            font-weight: 400;
+            color: var(--muted);
         }
         
         html {
@@ -196,21 +231,63 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0px); }
-        }
-        
-        @keyframes text-glow {
-            from { text-shadow: 0 0 5px var(--light-green), 0 0 10px var(--light-green); }
-            to { text-shadow: 0 0 10px var(--light-green), 0 0 20px var(--primary-green); }
-        }
-
         .project-card.visible {
             opacity: 1;
             transform: translateY(0) scale(1);
             transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) 0.2s;
+        }
+
+        .links-label {
+            margin-top: 0.5rem;
+            font-size: 0.92rem;
+            color: rgba(234, 244, 255, 0.85);
+            line-height: 1.7;
+        }
+
+        .links-label a {
+            color: var(--md-sys-color-primary-fixed-dim);
+            text-decoration: none;
+        }
+
+        .about {
+            margin-top: 0.5rem;
+            max-width: 640px;
+            width: 100%;
+            text-align: center;
+            color: var(--muted);
+            font-size: 1.02rem;
+            line-height: 1.7;
+            align-self: center;
+        }
+
+        .about-inner {
+            display: inline-block;
+            text-align: left;
+            max-width: 100%;
+        }
+
+        .about p {
+            margin: 0.15rem 0;
+        }
+
+        .about p:first-child {
+            color: var(--text);
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+        }
+
+        .about p:nth-child(2) {
+            white-space: nowrap;
+        }
+
+        .about strong {
+            color: var(--text);
+            font-weight: 700;
+        }
+
+        .links-label a:hover {
+            text-decoration: underline;
         }
 
         #projects {
@@ -220,24 +297,26 @@
     <!-- Убедитесь, что эта ссылка на Font Awesome подключена для иконок -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body>
-    <div id="particles-js"></div>
+<body class="dark">
     <div class="container">
         <header class="profile">
             <div class="avatar"></div>
             <div class="profile-info">
-                <h1>Привет, я mosshaven.</h1>
-                <p>Балуюсь с AI, делаю ботов и прочую хрень.</p>
+                <h1>Привет, я slutvibe.</h1>
+                <div class="about">
+                    <div class="about-inner">
+                        <p>Обо мне:</p>
+                        <p>Меня зовут Никита. Мне 16 лет. Я проживаю в Украине, г. Запорожье.</p>
+                        <p>Интересуюсь программированием, дизайном, музыкой.</p>
+                        <p><strong>Natsumi my beloved.</strong></p>
+                    </div>
+                </div>
                 <div class="actions">
-                    <a href="https://t.me/mosshaven" class="md-button" target="_blank" rel="noopener noreferrer">
+                    <a href="https://t.me/slutvibe" class="md-button" target="_blank" rel="noopener noreferrer">
                         <i class="fab fa-telegram"></i>
                         Telegram
                     </a>
-                    <a href="https://github.com/mosshaven" class="md-button" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-github"></i>
-                        GitHub
-                    </a>
-                    <a href="https://t.me/mossvibe" class="md-button" target="_blank" rel="noopener noreferrer">
+                    <a href="https://t.me/slutrepost" class="md-button" target="_blank" rel="noopener noreferrer">
                         <i class="fas fa-comments"></i> <!-- Иконка изменена -->
                         Блог
                     </a>
@@ -245,22 +324,48 @@
                         <i class="fas fa-stream"></i>
                         Проекты
                     </a>
-                    <a href="files/sky4arg/messages.html" class="md-button" target="_blank" rel="noopener noreferrer">
-                        <i class="fas fa-comment-dots"></i> <!-- Иконка изменена -->
-                        Диалог с владельцем GASD
-                    </a>
-                    <a href="files/gasd/messages.html" class="md-button" target="_blank" rel="noopener noreferrer">
-                        <i class="fas fa-comment-dots"></i>
-                        Переговоры GASD и RT
-                    </a>
                 </div>
             </div>
         </header>
 
                 <main id="projects">
-             <section class="project-card">
+            <section class="project-card">
+                <h3>Eimhim</h3>
+                <p>Музыкальный и Telegram-инструмент для быстрых действий в чате.</p>
+                <div class="actions">
+                    <a href="https://t.me/eimhimbot" class="md-button" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-telegram"></i>
+                        Бот
+                    </a>
+                    <a href="https://t.me/eimhim" class="md-button" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-telegram"></i>
+                        Канал
+                    </a>
+                </div>
+            </section>
+
+            <section class="project-card">
+                <h3>LifeCellEcho / VodafoneEcho</h3>
+                <p>Пара echo-проектов для Telegram: отдельные боты и общий канал для обновлений.</p>
+                <div class="actions">
+                    <a href="https://t.me/lifecellukrainebot" class="md-button" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-telegram"></i>
+                        LifeCell Bot
+                    </a>
+                    <a href="https://t.me/vodafoneechobot" class="md-button" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-telegram"></i>
+                        Vodafone Bot
+                    </a>
+                    <a href="https://t.me/lifecellecho" class="md-button" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-telegram"></i>
+                        Канал
+                    </a>
+                </div>
+            </section>
+
+            <section class="project-card">
                 <h3>CIYH</h3>
-                <p>Бот отправляющий сообщения в канал. Простой и удобный инструмент для управления вашим каналом прямо из рук.</p>
+                <p>Бот для отправки сообщений в канал и управления контентом.</p>
                 <div class="actions">
                     <a href="https://github.com/mosshaven/channelinyourhands" class="md-button" target="_blank" rel="noopener noreferrer">
                         <i class="fab fa-github"></i>
@@ -268,46 +373,10 @@
                     </a>
                 </div>
             </section>
-            
-            <section class="project-card">
-                <h3>Zygo</h3>
-                <p>Zygo (Заго на рус.) - это многопользовательский, и анонимный бот из семейства Echo-to-all</p>
-                <div class="actions">
-                    <a href="https://t.me/zygoapp" class="md-button" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-telegram"></i>
-                        Канал
-                    </a>
-                    <a href="https://t.me/zygoabot" class="md-button" target="_blank" rel="noopener noreferrer">
-                        <i class="fas fa-robot"></i>
-                        Бот
-                    </a>
-                </div>
-            </section>
         </main>
     </div>
 
-    <!-- Библиотека для анимации частиц -->
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script>
-        // Инициализация particles.js
-        particlesJS('particles-js', {
-            "particles": {
-                "number": { "value": 50, "density": { "enable": true, "value_area": 800 } },
-                "color": { "value": "#6A994E" },
-                "shape": { "type": "circle", "stroke": { "width": 0, "color": "#000000" } },
-                "opacity": { "value": 0.3, "random": true, "anim": { "enable": true, "speed": 1, "opacity_min": 0.1, "sync": false } },
-                "size": { "value": 3, "random": true, "anim": { "enable": false } },
-                "line_linked": { "enable": true, "distance": 150, "color": "#6A994E", "opacity": 0.2, "width": 1 },
-                "move": { "enable": true, "speed": 2, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false }
-            },
-            "interactivity": {
-                "detect_on": "canvas",
-                "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
-                "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 0.5 } }, "push": { "particles_nb": 4 } }
-            },
-            "retina_detect": true
-        });
-
         // Анимация появления карточек проектов при скролле
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
